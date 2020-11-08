@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/vue@latest"></script> -->
+
+    <style>
+      #particles-js {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgb(42, 42, 42);
+      }
+    </style>
+    <title>HyperTube</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="particles-js"></div>
+    <div  id="app" style="background-color: black;"></div>
+    <!-- built files will be auto injected -->
+    <script>
+      particlesJS.load('particles-js', 'particles.json', function() {
+        
+      });
+    </script>
+  </body>
+</html>
