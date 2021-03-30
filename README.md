@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 2. `npm run dev` in /API
 
-3. `npm install && npm run sevr` in /client
+3. `npm install && npm run serve` in /client
 
 4. Or `npm install serve -g && serve -s dist` in /client
 
