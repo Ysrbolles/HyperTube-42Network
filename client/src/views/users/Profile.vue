@@ -64,13 +64,13 @@ export default {
     moment
   },
   mounted() {
-    this.$store.state.loggedf = true;
+    //this.$store.state.loggedf = true;
     if (this.$route.query.user) this.get_other_Profile(this.$route.query.user);
     else{
       this.getProfile().then((user)=>{
         if(user){
           this.$store.state.lang = user.data.user.lang;
-          this.$store.state.loggedf = true;
+          //this.$store.state.loggedf = true;
           window.console.log("===> : PPP :",this.$store.state.lang);
        }
     

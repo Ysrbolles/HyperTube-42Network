@@ -125,7 +125,7 @@ const actions = {
         delete axios.defaults.headers.common['Authorization'];
 
         try {
-            this.$store.state.loggedf = true;
+            //this.$store.state.loggedf = true;
 
         } catch (error) {
             window.console.log(error)

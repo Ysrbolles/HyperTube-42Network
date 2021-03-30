@@ -4,14 +4,14 @@
       <v-row>
         <v-col>
           <h1 v-if="movieInfo">
-            {{movieInfo.title}}
-            <span>({{imdb.Year}})</span>
-            <v-icon v-if="Watched === true">{{icons.mdiEyeSettings}}</v-icon>
-            <v-icon v-else>{{icons.mdiEyeSettingsOutline}}</v-icon>
+            {{ movieInfo.title }}
+            <span>({{ imdb.Year }})</span>
+            <v-icon v-if="Watched === true">{{ icons.mdiEyeSettings }}</v-icon>
+            <v-icon v-else>{{ icons.mdiEyeSettingsOutline }}</v-icon>
           </h1>
           <h1 v-else>
-            {{imdb.Title}}
-            <span v-if="imdb.Year">({{imdb.Year}})</span>
+            {{ imdb.Title }}
+            <span v-if="imdb.Year">({{ imdb.Year }})</span>
           </h1>
         </v-col>
         <div class="rating">
@@ -32,16 +32,21 @@
       <div
         class="details"
         v-bind:style="{
-                  'background-image': 'url(' + image + ')',
-                  'background-repeat': 'no-repeat',
-                  'background-position': 'center',
-                  'background-size': 'cover',
-                  'height': 'auto',
-                }"
+          'background-image': 'url(' + image + ')',
+          'background-repeat': 'no-repeat',
+          'background-position': 'center',
+          'background-size': 'cover',
+          height: 'auto',
+        }"
       >
         <v-row class="mb-6" no-gutters>
           <v-col cols="10" md="2">
-            <v-dialog v-if="torrenthash" v-model="dialog" persistent max-width="3000px">
+            <v-dialog
+              v-if="torrenthash"
+              v-model="dialog"
+              persistent
+              max-width="3000px"
+            >
               <template v-slot:activator="{ on }">
                 <div class="poster" style="height: 450px;" v-on="on">
                   <a class="fancybox" data-fancybox-type="iframe">
@@ -52,7 +57,13 @@
                       height="450"
                       border="0"
                     />
-                    <v-img v-else :src="imdb.Poster" width="300" height="450" border="0" />
+                    <v-img
+                      v-else
+                      :src="imdb.Poster"
+                      width="300"
+                      height="450"
+                      border="0"
+                    />
                   </a>
                 </div>
               </template>
@@ -60,8 +71,20 @@
 
             <div v-else class="poster" style="height: 450px;">
               <a class="fancybox" data-fancybox-type="iframe">
-                <v-img v-if="Posterimage" :src="Posterimage" width="300" height="450" border="0" />
-                <v-img v-else :src="imdb.Poster" width="300" height="450" border="0" />
+                <v-img
+                  v-if="Posterimage"
+                  :src="Posterimage"
+                  width="300"
+                  height="450"
+                  border="0"
+                />
+                <v-img
+                  v-else
+                  :src="imdb.Poster"
+                  width="300"
+                  height="450"
+                  border="0"
+                />
               </a>
             </div>
           </v-col>
@@ -73,13 +96,13 @@
                     <v-col v-if="imdb.Director">
                       <div class="line">
                         <span>{{ this.language.moviePage.director }}:</span>
-                        {{imdb.Director}}
+                        {{ imdb.Director }}
                       </div>
                     </v-col>
                     <v-col>
                       <div class="line">
                         <span>{{ this.language.moviePage.genres }}:</span>
-                        {{imdb.Genre}}
+                        {{ imdb.Genre }}
                       </div>
                     </v-col>
                   </v-row>
@@ -87,13 +110,13 @@
                     <v-col v-if="imdb.Released">
                       <div class="line">
                         <span>{{ this.language.moviePage.release }}:</span>
-                        {{imdb.Released}}
+                        {{ imdb.Released }}
                       </div>
                     </v-col>
                     <v-col v-if="imdb.Runtime">
                       <div class="line">
                         <span>Runtime:</span>
-                        {{imdb.Runtime}}
+                        {{ imdb.Runtime }}
                       </div>
                     </v-col>
                   </v-row>
@@ -101,7 +124,7 @@
                     <v-col v-if="imdb.Awards">
                       <div class="line">
                         <span>{{ this.language.moviePage.awards }}:</span>
-                        {{imdb.Awards}}
+                        {{ imdb.Awards }}
                       </div>
                     </v-col>
 
@@ -113,8 +136,15 @@
                         <v-card class="details">
                           <div class="details subtitle">Movie Reviews:</div>
                           <div>
-                            <div class="reviews" style="max-height: 600px; overflow:scroll;">
-                              <v-comment v-for="(n, i) in comments" :key="i" :cmnt="n" />
+                            <div
+                              class="reviews"
+                              style="max-height: 600px; overflow:scroll;"
+                            >
+                              <v-comment
+                                v-for="(n, i) in comments"
+                                :key="i"
+                                :cmnt="n"
+                              />
                             </div>
                             <v-col cols="2" sm="6" md="12">
                               <v-text-field
@@ -127,8 +157,15 @@
                             </v-col>
                             <v-card-actions>
                               <v-spacer></v-spacer>
-                              <v-btn color="green darken-1" text @click="dialogII = false">Cancel</v-btn>
-                              <v-btn color="warning" text @click="addComment">Add Comment</v-btn>
+                              <v-btn
+                                color="green darken-1"
+                                text
+                                @click="dialogII = false"
+                                >Cancel</v-btn
+                              >
+                              <v-btn color="warning" text @click="addComment"
+                                >Add Comment</v-btn
+                              >
                             </v-card-actions>
                           </div>
                         </v-card>
@@ -137,27 +174,37 @@
                   </v-row>
                   <v-row>
                     <v-col>
-                      <v-dialog v-if="torrenthash" v-model="dialog" persistent max-width="1000">
+                      <v-dialog
+                        v-if="torrenthash"
+                        v-model="dialog"
+                        persistent
+                        max-width="1000"
+                      >
                         <template v-slot:activator="{ on }">
                           <v-btn color="warning" dark v-on="on">
-                            <v-icon>{{icons.mdiPlayCircleOutline}}</v-icon>Watch Now
+                            <v-icon>{{ icons.mdiPlayCircleOutline }}</v-icon
+                            >Watch Now
                           </v-btn>
                         </template>
                         <v-card>
                           <div class="details">
                             <v-row>
                               <v-col>
-                                <h2 class="subtitle">{{imdb.Title}}</h2>
+                                <h2 class="subtitle">{{ imdb.Title }}</h2>
                               </v-col>
                               <v-col>
                                 <v-card-actions>
                                   <v-spacer></v-spacer>
-                                  <v-btn color="warning" text @click="dialog = false">
-                                    <v-icon>{{icons.mdiClose}}</v-icon>
+                                  <v-btn
+                                    color="warning"
+                                    text
+                                    @click="dialog = false"
+                                  >
+                                    <v-icon>{{ icons.mdiClose }}</v-icon>
                                   </v-btn>
                                 </v-card-actions>
                               </v-col>
-                
+
                               <video
                                 :poster="image"
                                 loop="loop"
@@ -167,7 +214,9 @@
                                 style="width: 4000px; height: auto;"
                               >
                                 <source
-                                  :src="`http://localhost:3000/Home/video/${torrenthash}/${imdb.imdbID}`"
+                                  :src="
+                                    `http://localhost:3000/Home/video/${torrenthash}/${imdb.imdbID}`
+                                  "
                                   type="video/mp4"
                                 />
                                 <track
@@ -175,9 +224,10 @@
                                   :key="index"
                                   :label="sub.lang"
                                   kind="subtitles"
-                                  :srclang="sub.langShort "
-                                  :src="'data:text/vtt;base64,'+sub.fileName"
-                                />Your browser does not support HTML5 video.
+                                  :srclang="sub.langShort"
+                                  :src="'data:text/vtt;base64,' + sub.fileName"
+                                />
+                                Your browser does not support HTML5 video.
                               </video>
                             </v-row>
                           </div>
@@ -186,7 +236,8 @@
                     </v-col>
                     <v-col>
                       <v-btn color="warning" @click="WatchLater(movieInfo._id)">
-                        <v-icon>{{icons.mdiClockOutline}}</v-icon>Watch Later
+                        <v-icon>{{ icons.mdiClockOutline }}</v-icon
+                        >Watch Later
                       </v-btn>
                     </v-col>
                   </v-row>
@@ -194,19 +245,27 @@
                     <div>
                       <v-row>
                         <v-col>
-                          <div style="color: bisque; font-size: 20px;">{{ this.language.moviePage.cast }}</div>
+                          <div style="color: bisque; font-size: 20px;">
+                            {{ this.language.moviePage.cast }}
+                          </div>
                         </v-col>
                       </v-row>
                       <v-row>
-                        <div class="cast">{{imdb.Actors}}</div>
+                        <div class="cast">{{ imdb.Actors }}</div>
                       </v-row>
                       <v-row>
-                        <div class="infotitle" style="color: bisque; font-size: 20px;">
-                          <b style="color: bisque; font-size: 20px;">{{imdb.Title}}</b> {{ this.language.moviePage.synopsis }}
+                        <div
+                          class="infotitle"
+                          style="color: bisque; font-size: 20px;"
+                        >
+                          <b style="color: bisque; font-size: 20px;">{{
+                            imdb.Title
+                          }}</b>
+                          {{ this.language.moviePage.synopsis }}
                         </div>
                       </v-row>
                       <v-row>
-                        <div class="cast">{{imdb.Plot}}</div>
+                        <div class="cast">{{ imdb.Plot }}</div>
                       </v-row>
                     </div>
                   </v-row>
@@ -216,7 +275,9 @@
           </v-col>
         </v-row>
         <v-container v-if="trailer">
-          <h2 class="subtitle">"{{imdb.Title}}" {{ this.language.moviePage.trailer }}</h2>
+          <h2 class="subtitle">
+            "{{ imdb.Title }}" {{ this.language.moviePage.trailer }}
+          </h2>
           <iframe
             class="fancybox-iframe"
             frameborder="0"
@@ -233,7 +294,9 @@
     </v-container>
 
     <v-container v-if="Similar !== []" class="details">
-      <h2 class="subtitle">{{ this.language.moviePage.similar }} "{{imdb.Title}}"</h2>
+      <h2 class="subtitle">
+        {{ this.language.moviePage.similar }} "{{ imdb.Title }}"
+      </h2>
       <div class="movies">
         <div
           class="movie"
@@ -264,13 +327,13 @@ import {
   mdiArrowUpDropCircle,
   mdiClockOutline,
   mdiEyeSettings,
-  mdiEyeSettingsOutline
+  mdiEyeSettingsOutline,
 } from "@mdi/js";
 export default {
   name: "MoviePage",
   components: {
     MovieCard: MovieCard,
-    "v-comment": Comment
+    "v-comment": Comment,
   },
   data() {
     return {
@@ -279,7 +342,7 @@ export default {
         mdiClose,
         mdiClockOutline,
         mdiEyeSettings,
-        mdiEyeSettingsOutline
+        mdiEyeSettingsOutline,
       },
       comments: [],
       movieInfo: [],
@@ -296,7 +359,7 @@ export default {
       Sub: "",
       Watched: false,
       offsetTop: 0,
-      language: []
+      language: [],
     };
   },
   computed: mapGetters(["user"]),
@@ -305,12 +368,10 @@ export default {
       let cmnt = document.getElementById("comment").value;
       let get = this.$router.history.current.query;
       Movie.addComment(cmnt, get.id)
-        .then(() => {
-         
-        })
-        .catch(err => err);
-         cmnt = '';
-          document.getElementById("comment").value = ""
+        .then(() => {})
+        .catch((err) => err);
+      cmnt = "";
+      document.getElementById("comment").value = "";
     },
 
     WatchLater(id) {
@@ -327,22 +388,21 @@ export default {
     },
     getSimilarMovieinfo(id) {
       Movie.getSimilarMovieinfo(id)
-        .then(rows => {
+        .then((rows) => {
           window.console.log(rows.imdb_id);
           if (rows.imdb_id !== null || rows.imdb_id !== undefined) {
             location.replace("/moviePage?id=" + rows.imdb_id);
           }
         })
-        .catch(err => err);
-    }
+        .catch((err) => err);
+    },
   },
 
   beforeCreate() {
-    window.console.log(this.$store.state.loggedf);
     // if (this.$store.state.loggedf === false) router.push("/login");
     let get = this.$router.history.current.query;
-    Movie.getMovieInfo(get.id).then(rows => {
-      if (rows.req.certification === "") router.push("/");
+    Movie.getMovieInfo(get.id).then((rows) => {
+      // if (rows.req.certification === "") router.push("/");
       window.console.log(rows);
       this.Watched = rows.Watched;
       this.movieInfo = rows.req;
@@ -368,29 +428,31 @@ export default {
   },
   beforeMount() {
     let get = this.$router.history.current.query;
-    Movie.getSimilarMovie(get.id).then(rows => {
+    Movie.getSimilarMovie(get.id).then((rows) => {
       this.Similar = rows;
     });
   },
   created() {
-    this.language = require('../../plugins/lang/lang_' + this.$store.state.lang +'.js');
+    this.language = require("../../plugins/lang/lang_" +
+      this.$store.state.lang +
+      ".js");
   },
   mounted() {
     let get = this.$router.history.current.query;
-    Movie.getSub(get.id).then(path => {
+    Movie.getSub(get.id).then((path) => {
       this.Sub = path.data;
       window.console.log("path.data[i].data");
       window.console.log(this.Sub);
     });
   },
   updated() {
-    this.$store.state.loggedf = true;
+    // //this.$store.state.loggedf = true;
 
     let get = this.$router.history.current.query;
-    Movie.getComments(get.id).then(comments => {
+    Movie.getComments(get.id).then((comments) => {
       this.comments = comments.data;
     });
-  }
+  },
 };
 </script>
 

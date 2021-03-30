@@ -25,7 +25,7 @@
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider dark class="my-4" />
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiMovieRoll }}</v-icon>
                     </v-list-item-action>
@@ -35,7 +35,7 @@
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiLibraryMovie }}</v-icon>
                     </v-list-item-action>
@@ -45,7 +45,7 @@
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiMovieSearchOutline }}</v-icon>
                     </v-list-item-action>
@@ -55,7 +55,7 @@
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiTableEye }}</v-icon>
                     </v-list-item-action>
@@ -66,7 +66,7 @@
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider dark class="my-4" />
-                <v-list-item v-if="this.$store.state.loggedf === false">
+                <!-- <v-list-item v-if="this.$store.state.loggedf === false">
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiLogin }}</v-icon>
                     </v-list-item-action>
@@ -85,8 +85,8 @@
                             <router-link to="/Register" class="nav-link" style="color: grey;text-decoration: none;">{{ this.language.nav.signup }}</router-link>
                         </v-list-item-title>
                     </v-list-item-content>
-                </v-list-item>
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                </v-list-item> -->
+                <!-- <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiFaceProfile }}</v-icon>
                     </v-list-item-action>
@@ -96,7 +96,7 @@
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item v-if="this.$store.state.loggedf === true">
+                <v-list-item >
                     <v-list-item-action>
                         <v-icon>{{ icons.mdiLogout }}</v-icon>
                     </v-list-item-action>
@@ -105,8 +105,8 @@
                             <a to="/logout" class="nav-link" @click="logout">{{ this.language.nav.signout }}</a>
                         </v-list-item-title>
                     </v-list-item-content>
-                </v-list-item>
-                <v-divider dark class="my-4" />
+                </v-list-item> -->
+                <!-- <v-divider dark class="my-4" /> -->
             </v-list>
         </v-navigation-drawer>
     </div>

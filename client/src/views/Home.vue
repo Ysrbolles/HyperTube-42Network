@@ -16,7 +16,11 @@
     </v-btn>
     <div v-if="loading">
       <v-flex>
-        <v-carousel :show-arrows="false" hide-delimiters style="box-shadow: 0px 0px">
+        <v-carousel
+          :show-arrows="false"
+          hide-delimiters
+          style="box-shadow: 0px 0px"
+        >
           <v-carousel-item v-for="i in 10" :key="i">
             <v-layout row>
               <v-flex sm4 v-for="j in 3" :key="j" pl-2 pr-2>
@@ -30,7 +34,11 @@
         </v-carousel>
       </v-flex>
       <div>
-        <v-carousel :show-arrows="false" hide-delimiters style="box-shadow: 0px 0px">
+        <v-carousel
+          :show-arrows="false"
+          hide-delimiters
+          style="box-shadow: 0px 0px"
+        >
           <v-carousel-item v-for="i in 3" :key="i">
             <v-layout row>
               <v-flex sm4 v-for="j in 3" :key="j" pl-2 pr-2>
@@ -50,7 +58,8 @@
           <div class="tagline">
             <span class="title ml-3 mr-5">
               ᕼYᑭEᖇ&nbsp;
-              <span class="font-weight-light">ᵀᵘᵇᵉ</span> {{ this.language.desc }}
+              <span class="font-weight-light">ᵀᵘᵇᵉ</span>
+              {{ this.language.desc }}
             </span>
           </div>
           <div class="movies">
@@ -66,7 +75,12 @@
               </a>
             </div>
           </div>
-          <v-progress-circular :size="50" color="amber" indeterminate class="dwara"></v-progress-circular>
+          <v-progress-circular
+            :size="50"
+            color="amber"
+            indeterminate
+            class="dwara"
+          ></v-progress-circular>
         </v-container>
       </div>
     </div>
@@ -85,7 +99,7 @@ export default {
   data() {
     return {
       icons: {
-        mdiArrowUpDropCircle
+        mdiArrowUpDropCircle,
       },
       fab: false,
       model: null,
@@ -95,19 +109,19 @@ export default {
       page: 1,
       movieId: "",
       sym_search: 0,
-      language: []
+      language: [],
     };
   },
   inject: ["theme"],
   components: {
-    "v-movie": MovieCard
+    "v-movie": MovieCard,
     // 'MovieSlider': MovieSlider
   },
   computed: {
-    ...mapGetters(["user"])
+    ...mapGetters(["user"]),
   },
   methods: {
-     ...mapActions(["getProfile"]),
+    ...mapActions(["getProfile"]),
     filtre() {
       let tab = [];
       // window.console.log(this.haha[0])
@@ -130,7 +144,7 @@ export default {
     },
     Get_movies(page) {
       Movie.getMovies(page)
-        .then(rows => {
+        .then((rows) => {
           if (rows.err != undefined) router.push("/Error");
           for (let i = 0; i < 50; i++) {
             this.haha.push(rows[i]);
@@ -142,22 +156,14 @@ export default {
       if (!this.$store.state.loggedf) router.push("/login");
       this.movieId = id;
       router.push("/moviePage?id=" + this.movieId);
-    }
+    },
   },
- 
+
   created() {
-    this.getProfile().then((user)=>{
-       if(user){
- this.$store.state.lang = user.data.user.lang;
-  this.$store.state.loggedf = true;
-  this.language = require('../plugins/lang/lang_' + this.$store.state.lang +'.js');
-       }
-    
-    }),
     setTimeout(() => {
       this.loading = false;
     }, 1000);
-    Movie.lastMovie().then(rows => {
+    Movie.lastMovie().then((rows) => {
       if (rows.err != undefined) router.push("/Error");
       this.lastmovie = rows;
     });
@@ -172,7 +178,7 @@ export default {
         this.Get_movies(this.page);
       }
     };
-  }
+  },
 };
 </script>
 

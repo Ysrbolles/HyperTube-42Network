@@ -31,8 +31,6 @@ export default {
         },
     },
     created() {
-        if (!this.$store.state.loggedf)
-            router.push('/login')
         Movie.MovieWatched(6)
             .then((result) => {
                 window.console.log(result.data)

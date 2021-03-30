@@ -16,7 +16,11 @@
     </v-btn>
     <div v-if="loading">
       <v-flex>
-        <v-carousel :show-arrows="false" hide-delimiters style="box-shadow: 0px 0px">
+        <v-carousel
+          :show-arrows="false"
+          hide-delimiters
+          style="box-shadow: 0px 0px"
+        >
           <v-carousel-item v-for="i in 10" :key="i">
             <v-layout row>
               <v-flex sm4 v-for="j in 3" :key="j" pl-2 pr-2>
@@ -34,7 +38,8 @@
     <div v-else>
       <v-container class="details">
         <h1 class="subtitle">
-          <v-icon>{{icons.mdiMovieRoll}}</v-icon>{{this.lang.nav.box}}
+          <v-icon>{{ icons.mdiMovieRoll }}</v-icon
+          >Box Office Movies
         </h1>
 
         <div class="movies">
@@ -50,7 +55,12 @@
             </a>
           </div>
         </div>
-        <v-progress-circular :size="50" color="amber" indeterminate class="dwara"></v-progress-circular>
+        <v-progress-circular
+          :size="50"
+          color="amber"
+          indeterminate
+          class="dwara"
+        ></v-progress-circular>
       </v-container>
     </div>
   </v-container>
@@ -68,17 +78,17 @@ export default {
       icons: {
         mdiArrowUpDropCircle,
         mdiHome,
-        mdiMovieRoll
+        mdiMovieRoll,
       },
       loading: true,
       fab: false,
       lastmovie: [],
       page: 1,
-      lang: []
+      lang: [],
     };
   },
   components: {
-    MovieCard: MovieCard
+    MovieCard: MovieCard,
   },
   methods: {
     onScroll(e) {
@@ -91,30 +101,30 @@ export default {
     },
     getSimilarMovieinfo(id) {
       Movie.getSimilarMovieinfo(id)
-        .then(rows => {
+        .then((rows) => {
           window.console.log(rows.imdb_id);
           location.replace("/moviePage?id=" + rows.imdb_id);
         })
-        .catch(err => err);
+        .catch((err) => err);
     },
     Get_movies(page) {
       Movie.BoxOffice(page)
-        .then(rows => {
+        .then((rows) => {
           window.console.log(rows);
           for (let i = 0; i < 20; i++) {
             this.lastmovie.push(rows[i]);
           }
         })
         .catch(() => {});
-    }
+    },
   },
   created() {
-    this.$store.state.loggedf = true;
+    //this.$store.state.loggedf = true;
     setTimeout(() => {
       this.loading = false;
     }, 1000);
     this.Get_movies(1);
-    this.language = require('../../plugins/lang/lang_' + this.$store.state.lang +'.js');
+    // this.language = require('../../plugins/lang/lang_' + this.$store.state.lang +'.js');
   },
   updated() {
     window.onscroll = () => {
@@ -125,7 +135,7 @@ export default {
         this.Get_movies(this.page);
       }
     };
-  }
+  },
 };
 </script>
 

@@ -212,7 +212,7 @@ this.$store.state.lang = this.lang;
   created() {},
   mounted() {
     this.getProfile().then(data => {
-      this.$store.state.loggedf = true;
+      //this.$store.state.loggedf = true;
       if (data) {
         this.name = data.data.user.name;
         this.email = data.data.user.email;

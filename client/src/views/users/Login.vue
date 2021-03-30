@@ -78,7 +78,7 @@ export default {
             window.console.log(res);
             if (res !== undefined)
               if (res.data.success) {
-                this.$store.state.loggedf = true;
+                //this.$store.state.loggedf = true;
                 // this.$router.push("/profile");
                 router.push('/')
               }
@@ -91,7 +91,7 @@ export default {
   },
   created() {
     if (this.$route.query.token) {
-      // this.$store.state.loggedf = true;
+      // //this.$store.state.loggedf = true;
       this.token = this.$route.query.token;
       localStorage.setItem("token", this.$route.query.token);
       axios.defaults.headers.common["Authorization"] = this.$route.query.token;

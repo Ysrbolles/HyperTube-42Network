@@ -222,7 +222,7 @@ import io from 'socket.io-client'
     }
   },
   created() {
-    this.$store.state.loggedf = true;
+    //this.$store.state.loggedf = true;
     setTimeout(() => {
       this.loading = false;
     }, 1000);
